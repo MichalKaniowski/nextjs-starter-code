@@ -1,4 +1,4 @@
-import styles from "./loading-dots.module.css";
+import styles from "./LoadingDocs.module.css";
 
 const LoadingDots = ({ color = "#000" }: { color?: string }) => {
   return (

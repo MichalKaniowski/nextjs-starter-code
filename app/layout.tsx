@@ -1,9 +1,8 @@
-// These styles apply to every route in the application
-import "@/styles/globals.css";
+import "./globals.css";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
-import AuthStatus from "@/components/auth-status";
+import AuthStatus from "@/components/auth/AuthStatus";
 import { Suspense } from "react";
 
 const inter = Inter({
@@ -11,10 +10,8 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const title = "Next.js Prisma Postgres Auth Starter";
-const description =
-  "This is a Next.js starter kit that uses Next-Auth for simple email + password login and a Postgres database to persist the data.";
-
+const title = "my app";
+const description = "my app's description";
 export const metadata: Metadata = {
   title,
   description,
@@ -23,8 +20,6 @@ export const metadata: Metadata = {
     title,
     description,
   },
-  metadataBase: new URL("https://nextjs-postgres-auth.vercel.app"),
-  themeColor: "#FFF",
 };
 
 export default async function RootLayout({
@@ -34,10 +29,9 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.variable}>
+      <body className={inter.className}>
         <Toaster />
         <Suspense fallback="Loading...">
-          {/* @ts-expect-error Async Server Component */}
           <AuthStatus />
         </Suspense>
         {children}
